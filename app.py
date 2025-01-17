@@ -15,6 +15,7 @@ st.header('Lanzar una moneda')
 chart = st.line_chart([0.5])
 
 def toss_coin(n): # función que emula el lanzamiento de una moneda
+    
     trial_outcomes = scipy.stats.bernoulli.rvs(p = 0.5, size = n)
 
     mean = None
@@ -44,9 +45,8 @@ if start_button:
                               number_of_trials,
                               mean]],
                     columns = ['no', 'iterations', 'mean'])
-    ],
-    axis = 0)
-    
+        ],
+        axis = 0)
     st.session_state['df_experiment_results'] = st.session_state['df_experiment_results'].reset_index(drop = True)
 
 st.write(st.session_state['df_experiment_results'])
